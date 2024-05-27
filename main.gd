@@ -12,7 +12,7 @@ var game_over : bool
 var scroll
 var score
 var screen_size : Vector2i
-var ground_hight : int = 110 #replace
+var ground_hight : int = 105 #replace
 var boxes : Array
 
 func _input(event):
@@ -42,8 +42,8 @@ func _process(delta):
 		if scroll >= screen_size.x:
 			scroll = 0
 		tile_map.position.x = -scroll
-	for box in boxes:
-		box.position.x -= SCROLL_SPEED
+		for box in boxes:
+			box.position.x -= SCROLL_SPEED
 
 func generate_box():
 	var box = box.instantiate()
@@ -54,7 +54,14 @@ func generate_box():
 	boxes.append(box)
 	
 func dino_hit():
-	pass
+	stop_game()
+	
+
+func stop_game():
+	game_over = true
+	game_running = false
+	box_timer.stop()
+	
 
 func _on_box_timer_timeout():
 	generate_box()
