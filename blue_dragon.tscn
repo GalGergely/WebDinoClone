@@ -182,4 +182,3 @@ position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_ns4no")
 animation = &"running"
 autoplay = "default"
-frame_progress = 0.710827

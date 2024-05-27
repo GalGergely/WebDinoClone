@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://cqpducj13idjj"]
 
-[ext_resource type="Texture2D" uid="uid://c62fx4u2a7woa" path="res://Sprite/Free/Background/Gray.png" id="1_gq21c"]
 [ext_resource type="Script" path="res://main.gd" id="1_gxors"]
 [ext_resource type="PackedScene" uid="uid://b7l2ke1032w26" path="res://blue_dragon.tscn" id="1_lnc4w"]
 [ext_resource type="Texture2D" uid="uid://djek5o0bdvloa" path="res://Sprite/Free/Terrain/Terrain (16x16).png" id="2_qrw51"]
+[ext_resource type="Texture2D" uid="uid://b433wk1x6o7kd" path="res://Sprite/Free/a59b735200362f91e6735b2abcb787b2.png" id="3_madlm"]
 [ext_resource type="Script" path="res://TileMap.gd" id="4_kqe81"]
-[ext_resource type="PackedScene" uid="uid://63s2ffrme3lu" path="res://box.tscn" id="5_iat63"]
+[ext_resource type="PackedScene" uid="uid://macon6xyvjlm" path="res://box.tscn" id="5_iat63"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_um3uq"]
 texture = ExtResource("2_qrw51")
@@ -461,9 +461,12 @@ box = ExtResource("5_iat63")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
-offset_right = 1151.0
-offset_bottom = 645.0
-texture = ExtResource("1_gq21c")
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 2820.0
+offset_bottom = 637.0
+texture = ExtResource("3_madlm")
+expand_mode = 1
 stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]
