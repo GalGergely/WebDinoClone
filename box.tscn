@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://63s2ffrme3lu"]
+[gd_scene load_steps=4 format=3 uid="uid://63s2ffrme3lu"]
 
+[ext_resource type="Script" path="res://box.gd" id="1_gnqt0"]
 [ext_resource type="Texture2D" uid="uid://c08ahb5uc2mds" path="res://Sprite/Free/Items/Boxes/Box1/Idle.png" id="1_iwfs6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2r6bo"]
 size = Vector2(68, 66)
 
 [node name="Box" type="Area2D"]
+script = ExtResource("1_gnqt0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -15,3 +17,5 @@ texture = ExtResource("1_iwfs6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_2r6bo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
