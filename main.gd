@@ -31,8 +31,7 @@ func new_game():
 	score=0
 	scroll=0
 	boxes.clear()
-	box_timer.start()
-	generate_box()
+	box_timer.stop()
 	# blue_dragon.reset()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,6 +43,11 @@ func _process(delta):
 		tile_map.position.x = -scroll
 		for box in boxes:
 			box.position.x -= SCROLL_SPEED
+	else:
+		if Input.is_action_pressed("ui_accept"):
+			game_running = true
+			box_timer.start()
+			generate_box()
 
 func generate_box():
 	var box = box.instantiate()
