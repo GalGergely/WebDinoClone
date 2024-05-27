@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqpducj13idjj"]
+
+[ext_resource type="PackedScene" uid="uid://b7l2ke1032w26" path="res://blue_dragon.tscn" id="1_lnc4w"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BlueDragon" parent="." instance=ExtResource("1_lnc4w")]
