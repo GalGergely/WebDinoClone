@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://63s2ffrme3lu"]
+[gd_scene load_steps=4 format=3 uid="uid://macon6xyvjlm"]
 
 [ext_resource type="Script" path="res://box.gd" id="1_gnqt0"]
 [ext_resource type="Texture2D" uid="uid://c08ahb5uc2mds" path="res://Sprite/Free/Items/Boxes/Box1/Idle.png" id="1_iwfs6"]
