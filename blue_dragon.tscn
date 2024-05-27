@@ -180,4 +180,6 @@ shape = SubResource("CapsuleShape2D_y17ag")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_ns4no")
+animation = &"running"
 autoplay = "default"
+frame_progress = 0.880694
