@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://b7l2ke1032w26"]
+[gd_scene load_steps=25 format=3 uid="uid://b7l2ke1032w26"]
 
+[ext_resource type="Script" path="res://blue_dragon.gd" id="1_cukqb"]
 [ext_resource type="Texture2D" uid="uid://c2w03qp6cpwvv" path="res://Sprite/sheets/DinoSprites - doux.png" id="1_es8if"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y17ag"]
@@ -171,6 +172,7 @@ animations = [{
 
 [node name="BlueDragon" type="CharacterBody2D"]
 texture_filter = 1
+script = ExtResource("1_cukqb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_y17ag")
@@ -179,4 +181,3 @@ shape = SubResource("CapsuleShape2D_y17ag")
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_ns4no")
 autoplay = "default"
-frame_progress = 0.453913
