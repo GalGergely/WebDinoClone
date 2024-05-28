@@ -5,9 +5,10 @@ const BOX_RANGE : int = 100
 const SCROLL_SPEED = 4
 @onready var blue_dragon = %BlueDragon
 @onready var box_timer = %BoxTimer
-@onready var tile_map = %TileMap
-@onready var texture_rect = $TextureRect
 @export var box : PackedScene
+@onready var background = %Background
+@onready var tile_map = $TileMap
+
 var game_running : bool
 var game_over : bool
 var scroll
@@ -41,7 +42,7 @@ func _process(delta):
 		scroll += SCROLL_SPEED
 		if scroll >= screen_size.x:
 			scroll = 0
-		texture_rect.position.x = -scroll
+		background.scroll_base_offset -= Vector2(100, 0) * delta
 		tile_map.position.x = -scroll
 		for box in boxes:
 			box.position.x -= SCROLL_SPEED

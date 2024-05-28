@@ -1,13 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4iqa1yq7o2si"]
+[gd_scene load_steps=14 format=3 uid="uid://cqpducj13idjj"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_v2mss"]
-[ext_resource type="Texture2D" uid="uid://c62fx4u2a7woa" path="res://Sprite/Free/Background/Gray.png" id="1_vhys0"]
-[ext_resource type="Texture2D" uid="uid://djek5o0bdvloa" path="res://Sprite/Free/Terrain/Terrain (16x16).png" id="2_n0pj3"]
-[ext_resource type="FontFile" uid="uid://cuty68u3dwcvw" path="res://Sprite/Free/Menu/Text/Minecraft.ttf" id="3_30f7u"]
-[ext_resource type="Script" path="res://TileMap.gd" id="3_ruk6v"]
+[ext_resource type="Script" path="res://main.gd" id="1_gxors"]
+[ext_resource type="PackedScene" uid="uid://b7l2ke1032w26" path="res://blue_dragon.tscn" id="1_lnc4w"]
+[ext_resource type="Texture2D" uid="uid://djek5o0bdvloa" path="res://Sprite/Free/Terrain/Terrain (16x16).png" id="2_qrw51"]
+[ext_resource type="Script" path="res://TileMap.gd" id="4_kqe81"]
+[ext_resource type="PackedScene" uid="uid://macon6xyvjlm" path="res://box.tscn" id="5_iat63"]
+[ext_resource type="Texture2D" uid="uid://cpv2n3c62skgf" path="res://Sprite/Free/Jungle Asset Pack/parallax background/plx-1.png" id="6_66sec"]
+[ext_resource type="Script" path="res://Background.gd" id="6_ftquk"]
+[ext_resource type="Texture2D" uid="uid://ga5hsfo2qoh1" path="res://Sprite/Free/Jungle Asset Pack/parallax background/plx-2.png" id="7_hube5"]
+[ext_resource type="Texture2D" uid="uid://ci3fm8wgattaq" path="res://Sprite/Free/Jungle Asset Pack/parallax background/plx-3.png" id="8_l23fm"]
+[ext_resource type="Texture2D" uid="uid://ugrgucgbibv6" path="res://Sprite/Free/Jungle Asset Pack/parallax background/plx-4.png" id="9_7vyhp"]
+[ext_resource type="Texture2D" uid="uid://dl5rwynhcfw0k" path="res://Sprite/Free/Jungle Asset Pack/parallax background/plx-5.png" id="10_oh7xg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ycyx3"]
-texture = ExtResource("2_n0pj3")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_um3uq"]
+texture = ExtResource("2_qrw51")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -326,11 +332,9 @@ texture = ExtResource("2_n0pj3")
 9:8/0 = 0
 9:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:8/0/physics_layer_0/angular_velocity = 0.0
-9:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:8/0 = 0
 10:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:8/0/physics_layer_0/angular_velocity = 0.0
-10:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 12:8/0 = 0
 12:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:8/0/physics_layer_0/angular_velocity = 0.0
@@ -385,11 +389,9 @@ texture = ExtResource("2_n0pj3")
 9:9/0 = 0
 9:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:9/0/physics_layer_0/angular_velocity = 0.0
-9:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:9/0 = 0
 10:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:9/0/physics_layer_0/angular_velocity = 0.0
-10:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 12:9/0 = 0
 12:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:9/0/physics_layer_0/angular_velocity = 0.0
@@ -453,88 +455,82 @@ texture = ExtResource("2_n0pj3")
 20:10/0 = 0
 20:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:10/0/physics_layer_0/angular_velocity = 0.0
-9:10/0 = 0
-9:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:10/0/physics_layer_0/angular_velocity = 0.0
-9:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-10:10/0 = 0
-10:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:10/0/physics_layer_0/angular_velocity = 0.0
-10:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_8lpwm"]
+[sub_resource type="TileSet" id="TileSet_gnce5"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ycyx3")
+sources/0 = SubResource("TileSetAtlasSource_um3uq")
 
-[node name="Menu" type="Node2D"]
-position = Vector2(-1, 0)
-script = ExtResource("1_v2mss")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 1
-offset_right = 1151.0
-offset_bottom = 645.0
-texture = ExtResource("1_vhys0")
-stretch_mode = 1
-
-[node name="DinoGame" type="Label" parent="."]
-offset_left = 368.0
-offset_top = 143.0
-offset_right = 814.0
-offset_bottom = 226.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.917647, 0.443137, 0.741176, 1)
-theme_override_constants/outline_size = 23
-theme_override_fonts/font = ExtResource("3_30f7u")
-theme_override_font_sizes/font_size = 60
-text = "The Dino Game"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 464.0
-offset_top = 249.0
-offset_right = 714.0
-offset_bottom = 629.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_30f7u")
-theme_override_font_sizes/font_size = 40
-text = "Play"
-
-[node name="Options2" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_30f7u")
-theme_override_font_sizes/font_size = 40
-text = "Options
-"
-
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_30f7u")
-theme_override_font_sizes/font_size = 40
-text = "Quit
-"
+[node name="Main" type="Node2D"]
+script = ExtResource("1_gxors")
+box = ExtResource("5_iat63")
 
 [node name="TileMap" type="TileMap" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(-2, 1)
 scale = Vector2(4, 4)
-tile_set = SubResource("TileSet_8lpwm")
+tile_set = SubResource("TileSet_gnce5")
 format = 2
 layer_0/tile_data = PackedInt32Array(589824, 458752, 8, 589825, 458752, 8, 589826, 458752, 8, 589827, 458752, 8, 589828, 458752, 8, 589829, 458752, 8, 589830, 458752, 8, 589831, 458752, 8, 589832, 458752, 8, 589833, 458752, 8, 589834, 458752, 8, 589835, 458752, 8, 589836, 458752, 8, 589837, 458752, 8, 589838, 458752, 8, 589839, 458752, 8, 589840, 458752, 8, 589841, 458752, 8, 655360, 458752, 9, 655361, 458752, 9, 655362, 458752, 9, 655363, 458752, 9, 655364, 458752, 9, 655365, 458752, 9, 655366, 458752, 9, 655367, 458752, 9, 655368, 458752, 9, 655369, 458752, 9, 655370, 458752, 9, 655371, 458752, 9, 655372, 458752, 9, 655373, 458752, 9, 655374, 458752, 9, 655375, 458752, 9, 655376, 458752, 9, 655377, 458752, 9, 655378, 458752, 9, 720895, 458752, 9, 655359, 458752, 8, 589842, 458752, 8, 589843, 458752, 8, 589844, 458752, 8, 589845, 458752, 8, 589846, 458752, 8, 589847, 458752, 8, 589848, 458752, 8, 589849, 458752, 8, 589850, 458752, 8, 589851, 458752, 8, 589852, 458752, 8, 589853, 458752, 8, 589854, 458752, 8, 589855, 458752, 8, 589856, 458752, 8, 589857, 458752, 8, 589858, 458752, 8, 589859, 458752, 8, 589860, 458752, 8, 589861, 458752, 8, 589862, 458752, 8, 589863, 458752, 8, 589864, 458752, 8, 589865, 458752, 8, 589866, 458752, 8, 655379, 458752, 9, 655380, 458752, 9, 655381, 458752, 9, 655382, 458752, 9, 655383, 458752, 9, 655384, 458752, 9, 655385, 458752, 9, 655386, 458752, 9, 655387, 458752, 9, 655388, 458752, 9, 655389, 458752, 9, 655390, 458752, 9, 655391, 458752, 9, 655392, 458752, 9, 655393, 458752, 9, 655394, 458752, 9, 655395, 458752, 9, 655396, 458752, 9, 655397, 458752, 9, 655398, 458752, 9, 655399, 458752, 9, 655400, 458752, 9, 655401, 458752, 9, 655402, 458752, 9)
-script = ExtResource("3_ruk6v")
+script = ExtResource("4_kqe81")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options2" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="BlueDragon" parent="." instance=ExtResource("1_lnc4w")]
+unique_name_in_owner = true
+position = Vector2(69, 520)
+scale = Vector2(5, 5)
+
+[node name="BoxTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
+
+[node name="Background" type="ParallaxBackground" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_ftquk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(3.0026, 2.99074)
+texture = ExtResource("6_66sec")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer"]
+texture_filter = 1
+scale = Vector2(2.98958, 2.96296)
+texture = ExtResource("7_hube5")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer2"]
+texture_filter = 1
+scale = Vector2(2.98958, 2.96296)
+texture = ExtResource("8_l23fm")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer3"]
+texture_filter = 1
+scale = Vector2(2.98958, 2.96296)
+texture = ExtResource("9_7vyhp")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer4"]
+texture_filter = 1
+scale = Vector2(2.98958, 2.96296)
+texture = ExtResource("10_oh7xg")
+centered = false
+
+[connection signal="timeout" from="BoxTimer" to="." method="_on_box_timer_timeout"]

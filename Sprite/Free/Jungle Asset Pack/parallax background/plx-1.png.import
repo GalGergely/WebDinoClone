@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b433wk1x6o7kd"
-path="res://.godot/imported/a59b735200362f91e6735b2abcb787b2.png-b16232d37c0b717e120e8baffc5ea7db.ctex"
+uid="uid://cpv2n3c62skgf"
+path="res://.godot/imported/plx-1.png-0fbedcafd69a40a9a39c8a13710e32f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/Free/a59b735200362f91e6735b2abcb787b2.png"
-dest_files=["res://.godot/imported/a59b735200362f91e6735b2abcb787b2.png-b16232d37c0b717e120e8baffc5ea7db.ctex"]
+source_file="res://Sprite/Free/Jungle Asset Pack/parallax background/plx-1.png"
+dest_files=["res://.godot/imported/plx-1.png-0fbedcafd69a40a9a39c8a13710e32f7.ctex"]
 
 [params]
 
