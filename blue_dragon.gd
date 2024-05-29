@@ -22,10 +22,6 @@ func animation():
 			$AnimatedSprite2D.play("default")
 		elif (velocity.x < 1 and velocity.x > -1):
 			$AnimatedSprite2D.play("running")
-		
-func _on_AnimatedSprite2D_animation_finished():
-	if $AnimatedSprite2D.animation == "dead":
-		$AnimatedSprite2D.stop()
 			
 func movement(delta):
 		if get_parent().game_running:
