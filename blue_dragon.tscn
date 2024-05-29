@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b7l2ke1032w26"]
+[gd_scene load_steps=28 format=3 uid="uid://b7l2ke1032w26"]
 
 [ext_resource type="Script" path="res://blue_dragon.gd" id="1_cukqb"]
 [ext_resource type="Texture2D" uid="uid://c2w03qp6cpwvv" path="res://Sprite/sheets/DinoSprites - doux.png" id="1_es8if"]
@@ -6,6 +6,18 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y17ag"]
 radius = 6.0
 height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87v0v"]
+atlas = ExtResource("1_es8if")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pen6"]
+atlas = ExtResource("1_es8if")
+region = Rect2(360, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35hmd"]
+atlas = ExtResource("1_es8if")
+region = Rect2(384, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i12pp"]
 atlas = ExtResource("1_es8if")
@@ -91,6 +103,20 @@ region = Rect2(552, 0, 24, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_87v0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pen6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35hmd")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_i12pp")
 }, {
 "duration": 1.0,
@@ -170,7 +196,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BlueDragon" type="CharacterBody2D"]
+[node name="BlueDragon" type="CharacterBody2D" groups=["blue_dragon"]]
 texture_filter = 1
 script = ExtResource("1_cukqb")
 
@@ -180,5 +206,5 @@ shape = SubResource("CapsuleShape2D_y17ag")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_ns4no")
-animation = &"running"
+animation = &"dead"
 autoplay = "default"
