@@ -1,11 +1,13 @@
 extends Node2D
 
-const BOX_DELAY : int = 100
-const BOX_RANGE : int = 100
+const obstacle_DELAY : int = 100
+const obstacle_RANGE : int = 100
 const SCROLL_SPEED = 4
-
 @onready var blue_dragon = %BlueDragon
-@onready var box_timer = %BoxTimer
+@onready var obstacle_timer = %BoxTimer
+var obstacle_1 = preload("res://Obstacles/obstacle_1.tscn")
+var obstacle_2 = preload("res://Obstacles/obstacle_2.tscn")
+var obstacle_3 = preload("res://Obstacles/obstacle_3.tscn")
 @export var box : PackedScene
 @onready var background = %Background
 @onready var tile_map = $TileMap
@@ -18,7 +20,7 @@ var scroll
 var score
 var screen_size : Vector2i
 var ground_hight : int = 105 #replace
-var boxes : Array
+var obstacles : Array
 
 func show_or_hode_youdied_label():
 	if game_over:
@@ -48,18 +50,14 @@ func new_game():
 	game_over=false
 	score=0
 	scroll=0
-	print(boxes)
-	# TODO: itt a box kitörlödik a boxes tombbol, de a gyerekek valahogy ottmaradnak, tehát ami a képernyon volt doboz aktuálisan, beragad
-	# gondolom valami remove child kellene.
-	boxes.clear()
-	print(boxes)
-	box_timer.stop()
+	obstacles.clear()
+	obstacle_timer.stop()
 	blue_dragon.reset()
-	
+	get_tree().call_group("obstacles", "queue_free")
 func start_game():
 	game_running=true
-	box_timer.start()
-	generate_box()
+	obstacle_timer.start()
+	generate_obstacle()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,20 +70,29 @@ func _process(delta):
 			scroll = 0
 		background.scroll_base_offset -= Vector2(100, 0) * delta
 		tile_map.position.x = -scroll
-		for box in boxes:
-			box.position.x -= SCROLL_SPEED
+		for obstacle in obstacles:
+			obstacle.position.x -= SCROLL_SPEED
 	else:
 		if Input.is_action_pressed("ui_accept"):
 			new_game()
 			start_game()
 
-func generate_box():
-	var box = box.instantiate()
-	box.position.x = screen_size.x + randi_range(0, BOX_RANGE)
-	box.position.y = (screen_size.y - ground_hight)
-	box.hit.connect(dino_hit)
-	add_child(box)
-	boxes.append(box)
+func generate_obstacle():
+	var random = randi_range(1,3)
+	var obstacle
+	if random == 1:
+		obstacle = obstacle_1.instantiate()
+	elif random == 2:
+		obstacle = obstacle_2.instantiate()
+	elif random == 3:
+		obstacle = obstacle_3.instantiate()
+	else:
+		pass
+	obstacle.position.x = screen_size.x + randi_range(0, obstacle_RANGE)
+	obstacle.position.y = (screen_size.y - ground_hight)
+	obstacle.hit.connect(dino_hit)
+	add_child(obstacle)
+	obstacles.append(obstacle)
 	
 func dino_hit():
 	stop_game()
@@ -94,8 +101,7 @@ func dino_hit():
 func stop_game():
 	game_over = true
 	game_running = false
-	box_timer.stop()
+	obstacle_timer.stop()
 	
-
 func _on_box_timer_timeout():
-	generate_box()
+	generate_obstacle()

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://f1ykhkm61xfy"]
+
+[ext_resource type="Script" path="res://Obstacles/obstacle_1.gd" id="1_xtsvv"]
+[ext_resource type="Texture2D" uid="uid://gl53nt5obg7m" path="res://Sprite/swamp/3 Objects/Ridges/1.png" id="2_3quei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f03pp"]
+size = Vector2(250, 60)
+
+[node name="Obstacle2" type="Area2D" groups=["obstacles"]]
+script = ExtResource("1_xtsvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 6)
+shape = SubResource("RectangleShape2D_f03pp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_3quei")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
