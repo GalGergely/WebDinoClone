@@ -44,3 +44,5 @@ func movement(delta):
 func _physics_process(delta):
 	animation()
 	movement(delta)
+	#position += velocity * delta
+	position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
