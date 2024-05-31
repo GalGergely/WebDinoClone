@@ -7,6 +7,10 @@ const JUMP_VELOCITY = -1000.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func reset():
+	position.x=65
+	position.y=537
+	
 func animation():
 	if not get_parent().game_running and not get_parent().game_over:
 		$AnimatedSprite2D.play("default")

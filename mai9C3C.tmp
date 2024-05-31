@@ -1104,7 +1104,7 @@ layer_0/tile_data = PackedInt32Array(786432, 327680, 2, 851968, 393216, 3, 78643
 
 [node name="BlueDragon" parent="." instance=ExtResource("1_lnc4w")]
 unique_name_in_owner = true
-position = Vector2(65, 537)
+position = Vector2(67, 537)
 scale = Vector2(5, 5)
 
 [node name="BoxTimer" type="Timer" parent="."]

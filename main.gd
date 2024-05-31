@@ -3,11 +3,14 @@ extends Node2D
 const BOX_DELAY : int = 100
 const BOX_RANGE : int = 100
 const SCROLL_SPEED = 4
+
 @onready var blue_dragon = %BlueDragon
 @onready var box_timer = %BoxTimer
 @export var box : PackedScene
 @onready var background = %Background
 @onready var tile_map = $TileMap
+@onready var press_enter_label = %PressEnter
+@onready var you_died = $YouDied
 
 var game_running : bool
 var game_over : bool
@@ -16,6 +19,19 @@ var score
 var screen_size : Vector2i
 var ground_hight : int = 105 #replace
 var boxes : Array
+
+func show_or_hode_youdied_label():
+	if game_over:
+		you_died.show()
+	else:
+		you_died.hide()
+		
+func show_or_remove_enter_label():
+	if !game_running:
+		press_enter_label.show()
+	else:
+		press_enter_label.hide()
+		
 
 func _input(event):
 	if !game_over:
@@ -32,12 +48,24 @@ func new_game():
 	game_over=false
 	score=0
 	scroll=0
+	print(boxes)
+	# TODO: itt a box kitörlödik a boxes tombbol, de a gyerekek valahogy ottmaradnak, tehát ami a képernyon volt doboz aktuálisan, beragad
+	# gondolom valami remove child kellene.
 	boxes.clear()
+	print(boxes)
 	box_timer.stop()
-	# blue_dragon.reset()
+	blue_dragon.reset()
+	
+func start_game():
+	game_running=true
+	box_timer.start()
+	generate_box()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	show_or_hode_youdied_label()
+	show_or_remove_enter_label()
 	if game_running:
 		scroll += SCROLL_SPEED
 		if scroll >= screen_size.x:
@@ -48,9 +76,8 @@ func _process(delta):
 			box.position.x -= SCROLL_SPEED
 	else:
 		if Input.is_action_pressed("ui_accept"):
-			game_running = true
-			box_timer.start()
-			generate_box()
+			new_game()
+			start_game()
 
 func generate_box():
 	var box = box.instantiate()

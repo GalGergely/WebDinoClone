@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfpakciy47sqw"]
+
+[ext_resource type="FontFile" uid="uid://cuty68u3dwcvw" path="res://Sprite/Free/Menu/Text/Minecraft.ttf" id="1_lqupj"]
+
+[node name="PressEnter" type="Label"]
+offset_left = 274.0
+offset_top = 71.0
+offset_right = 863.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.4774, 0.714539, 0.322599, 1)
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = ExtResource("1_lqupj")
+theme_override_font_sizes/font_size = 60
+text = "You died."
+horizontal_alignment = 1
+vertical_alignment = 1
