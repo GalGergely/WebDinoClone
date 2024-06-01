@@ -39,10 +39,12 @@ func movement(delta):
 			else:
 				velocity.x = move_toward(velocity.x, 0, 25)
 			move_and_slide()
-			
 		
 func _physics_process(delta):
 	animation()
 	movement(delta)
-	#position += velocity * delta
+	if $AnimatedSprite2D.animation == "spring":
+		$RunCollision.disabled = true
+	else:
+		$RunCollision.disabled = false
 	position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
