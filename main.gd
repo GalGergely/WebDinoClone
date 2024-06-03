@@ -17,10 +17,11 @@ var obstacle_3 = preload("res://Obstacles/obstacle_3.tscn")
 var game_running : bool
 var game_over : bool
 var scroll
-var score
+var score: int
 var screen_size : Vector2i
 var ground_hight : int = 105 #replace
 var obstacles : Array
+var passed_obstacles : Array
 
 func show_or_hode_youdied_label():
 	if game_over:
@@ -51,9 +52,11 @@ func new_game():
 	score=0
 	scroll=0
 	obstacles.clear()
+	passed_obstacles.clear()
 	obstacle_timer.stop()
 	blue_dragon.reset()
 	get_tree().call_group("obstacles", "queue_free")
+	get_tree().call_group("passed_obstacles", "queue_free")
 func start_game():
 	game_running=true
 	obstacle_timer.start()
@@ -72,10 +75,17 @@ func _process(delta):
 		tile_map.position.x = -scroll
 		for obstacle in obstacles:
 			obstacle.position.x -= SCROLL_SPEED
+			if obstacle.position.x < %BlueDragon.position.x and not passed_obstacles.has(obstacle):
+				passed_obstacles.append(obstacle)
+				score += 1
+		show_score()
 	else:
 		if Input.is_action_pressed("ui_accept"):
 			new_game()
 			start_game()
+
+func show_score():
+	$HUD.get_node("Score").text = "SCORE: " + str(score)
 
 func generate_obstacle():
 	var random = randi_range(1,3)
@@ -89,6 +99,7 @@ func generate_obstacle():
 	else:
 		pass
 	obstacle.position.x = screen_size.x + randi_range(0, obstacle_RANGE)
+	
 	obstacle.position.y = (screen_size.y - ground_hight)
 	obstacle.hit.connect(dino_hit)
 	add_child(obstacle)

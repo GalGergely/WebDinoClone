@@ -212,7 +212,6 @@ autoplay = "default"
 
 [node name="RunCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_t4saa")
 
 [node name="SprintCollision" type="CollisionShape2D" parent="."]

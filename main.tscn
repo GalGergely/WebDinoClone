@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqpducj13idjj"]
+[gd_scene load_steps=11 format=3 uid="uid://cqpducj13idjj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gxors"]
 [ext_resource type="PackedScene" uid="uid://b7l2ke1032w26" path="res://blue_dragon.tscn" id="1_lnc4w"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://kb5aau85qsy5" path="res://Sprite/Free/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="4_kmjiw"]
 [ext_resource type="PackedScene" uid="uid://qfq5gmycu0pb" path="res://background.tscn" id="5_3f43u"]
 [ext_resource type="PackedScene" uid="uid://macon6xyvjlm" path="res://box.tscn" id="5_iat63"]
+[ext_resource type="PackedScene" uid="uid://c2i30bhtpe763" path="res://hud.tscn" id="8_wv5sp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nskpa"]
 texture = ExtResource("4_kmjiw")
@@ -1113,5 +1114,7 @@ autostart = true
 
 [node name="Background" parent="." instance=ExtResource("5_3f43u")]
 unique_name_in_owner = true
+
+[node name="HUD" parent="." instance=ExtResource("8_wv5sp")]
 
 [connection signal="timeout" from="BoxTimer" to="." method="_on_box_timer_timeout"]
