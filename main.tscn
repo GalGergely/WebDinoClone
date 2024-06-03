@@ -1,9 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqpducj13idjj"]
+[gd_scene load_steps=9 format=3 uid="uid://cqpducj13idjj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gxors"]
 [ext_resource type="PackedScene" uid="uid://b7l2ke1032w26" path="res://blue_dragon.tscn" id="1_lnc4w"]
-[ext_resource type="FontFile" uid="uid://cuty68u3dwcvw" path="res://Sprite/Free/Menu/Text/Minecraft.ttf" id="3_064vb"]
-[ext_resource type="PackedScene" uid="uid://bfpakciy47sqw" path="res://text.tscn" id="4_70kpx"]
 [ext_resource type="Texture2D" uid="uid://kb5aau85qsy5" path="res://Sprite/Free/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="4_kmjiw"]
 [ext_resource type="PackedScene" uid="uid://qfq5gmycu0pb" path="res://background.tscn" id="5_3f43u"]
 [ext_resource type="PackedScene" uid="uid://macon6xyvjlm" path="res://box.tscn" id="5_iat63"]
@@ -1078,24 +1076,6 @@ sources/0 = SubResource("TileSetAtlasSource_nskpa")
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gxors")
 box = ExtResource("5_iat63")
-
-[node name="PressEnter" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = 301.0
-offset_top = 140.0
-offset_right = 890.0
-offset_bottom = 223.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.4774, 0.714539, 0.322599, 1)
-theme_override_constants/outline_size = 23
-theme_override_fonts/font = ExtResource("3_064vb")
-theme_override_font_sizes/font_size = 60
-text = "Press Enter to start"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="YouDied" parent="." instance=ExtResource("4_70kpx")]
-unique_name_in_owner = true
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(3, 3)

@@ -11,8 +11,6 @@ var obstacle_3 = preload("res://Obstacles/obstacle_3.tscn")
 @export var box : PackedScene
 @onready var background = %Background
 @onready var tile_map = $TileMap
-@onready var press_enter_label = %PressEnter
-@onready var you_died = $YouDied
 
 var game_running : bool
 var game_over : bool
@@ -25,15 +23,15 @@ var passed_obstacles : Array
 
 func show_or_hode_youdied_label():
 	if game_over:
-		you_died.show()
+		$HUD.get_node("YouDied").show()
 	else:
-		you_died.hide()
+		$HUD.get_node("YouDied").hide()
 		
 func show_or_remove_enter_label():
 	if !game_running:
-		press_enter_label.show()
+		$HUD.get_node("PressEnter").show()
 	else:
-		press_enter_label.hide()
+		$HUD.get_node("PressEnter").hide()
 		
 
 func _input(event):
@@ -50,6 +48,7 @@ func new_game():
 	game_running=false
 	game_over=false
 	score=0
+	show_score()
 	scroll=0
 	obstacles.clear()
 	passed_obstacles.clear()
