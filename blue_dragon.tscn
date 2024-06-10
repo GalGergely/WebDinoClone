@@ -1,11 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://b7l2ke1032w26"]
+[gd_scene load_steps=29 format=3 uid="uid://b7l2ke1032w26"]
 
 [ext_resource type="Script" path="res://blue_dragon.gd" id="1_cukqb"]
 [ext_resource type="Texture2D" uid="uid://c2w03qp6cpwvv" path="res://Sprite/sheets/DinoSprites - doux.png" id="1_es8if"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y17ag"]
-radius = 6.0
-height = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87v0v"]
 atlas = ExtResource("1_es8if")
@@ -196,15 +192,28 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BlueDragon" type="CharacterBody2D" groups=["blue_dragon"]]
-texture_filter = 1
-script = ExtResource("1_cukqb")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4saa"]
+size = Vector2(10, 17)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_y17ag")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifudv"]
+size = Vector2(10, 14)
+
+[node name="BlueDragon" type="CharacterBody2D" groups=["blue_dragon"]]
+z_index = 1
+texture_filter = 1
+scale = Vector2(8, 8)
+script = ExtResource("1_cukqb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_ns4no")
-animation = &"dead"
+animation = &"spring"
 autoplay = "default"
+
+[node name="RunCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_t4saa")
+
+[node name="SprintCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_ifudv")

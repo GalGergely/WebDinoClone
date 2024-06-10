@@ -1,21 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://f1ykhkm61xfy"]
+[gd_scene load_steps=3 format=3 uid="uid://f1ykhkm61xfy"]
 
 [ext_resource type="Script" path="res://Obstacles/obstacle_1.gd" id="1_xtsvv"]
 [ext_resource type="Texture2D" uid="uid://gl53nt5obg7m" path="res://Sprite/swamp/3 Objects/Ridges/1.png" id="2_3quei"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f03pp"]
-size = Vector2(250, 60)
-
 [node name="Obstacle2" type="Area2D" groups=["obstacles"]]
 script = ExtResource("1_xtsvv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 6)
-shape = SubResource("RectangleShape2D_f03pp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(3, 3)
 texture = ExtResource("2_3quei")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["obstacles"]]
+scale = Vector2(3, 3)
+polygon = PackedVector2Array(20.5, -11, 19.5, -11, 19.5, -10, 18.5, -10, 18.5, -8, 25.5, -8, 25.5, -9, 31.5, -9, 31.5, -7, 30.5, -7, 30.5, -6, 26.5, -6, 26.5, -5, 22.5, -5, 22.5, -4, 13.5, -4, 13.5, -3, 11.5, -3, 11.5, -2, 14.5, -2, 14.5, -1, 18.5, -1, 18.5, 0, 21.5, 0, 21.5, 1, 26.5, 1, 26.5, 2, 31.5, 2, 31.5, 3, 35.5, 3, 35.5, 4, 38.5, 4, 38.5, 5, 41.5, 5, 41.5, 6, 42.5, 6, 42.5, 7, 43.5, 7, 43.5, 9, 44.5, 9, 44.5, 13, -41.5, 13, -41.5, 6, -40.5, 6, -40.5, 4, -41.5, 4, -41.5, 2, -42.5, 2, -42.5, 0, -43.5, 0, -43.5, -2, -44.5, -2, -44.5, -4, -43.5, -4, -43.5, -5, -41.5, -5, -41.5, -4, -40.5, -4, -40.5, -3, -39.5, -3, -39.5, -2, -38.5, -2, -38.5, -3, -37.5, -3, -37.5, -5, -36.5, -5, -36.5, -6, -35.5, -6, -35.5, -7, -33.5, -7, -33.5, -8, -30.5, -8, -30.5, -7, -29.5, -7, -29.5, -9, -28.5, -9, -28.5, -10, -26.5, -10, -26.5, -11, -23.5, -11, -23.5, -10, -18.5, -10, -18.5, -11, -15.5, -11, -15.5, -10, -14.5, -10, -14.5, -9, -11.5, -9, -11.5, -8, -8.5, -8, -8.5, -7, -5.5, -7, -5.5, -6, -0.5, -6, -0.5, -5, 5.5, -5, 5.5, -6, 10.5, -6, 10.5, -7, 12.5, -7, 12.5, -8, 14.5, -8, 14.5, -9, 15.5, -9, 15.5, -10, 16.5, -10, 16.5, -11, 17.5, -11, 17.5, -12, 18.5, -12, 18.5, -13, 20.5, -13)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
