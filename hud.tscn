@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2i30bhtpe763"]
+
+[ext_resource type="PackedScene" uid="uid://bfpakciy47sqw" path="res://text.tscn" id="1_g2nha"]
+[ext_resource type="FontFile" uid="uid://cuty68u3dwcvw" path="res://Sprite/Free/Menu/Text/Minecraft.ttf" id="2_sapix"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Score" type="Label" parent="."]
+offset_right = 137.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 40
+text = "SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -248.0
+offset_bottom = 55.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "HIGH SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YouDied" parent="." instance=ExtResource("1_g2nha")]
+unique_name_in_owner = true
+
+[node name="PressEnter" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 301.0
+offset_top = 140.0
+offset_right = 890.0
+offset_bottom = 223.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.4774, 0.714539, 0.322599, 1)
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = ExtResource("2_sapix")
+theme_override_font_sizes/font_size = 60
+text = "Press Enter to start"
+horizontal_alignment = 1
+vertical_alignment = 1
